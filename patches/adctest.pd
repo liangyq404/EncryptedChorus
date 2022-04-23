@@ -1,0 +1,68 @@
+#N canvas 352 116 928 752 12;
+#X obj 86 70 adc~;
+#X obj 86 164 rfft~;
+#X obj 88 231 *~;
+#X obj 131 230 *~;
+#X obj 88 283 +~;
+#X obj 88 347 sqrt~;
+#X obj 149 456 tabwrite~ magnitude;
+#X obj 149 380 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
+#000000 #000000;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array magnitude 100 float 5;
+#A 0 0.156242 0.113879 0.0807162 0.0551097 0.0168055 0.0276973 0.0173063
+0.00744598 0.0211662 0.0148566 0.00434336 0.0153024 0.00675741 0.00492204
+0.00881183 0.00934343 0.012513 0.00340128 0.002914 0.0015325 0.00809199
+0.00695032 0.00569159 0.0034442 0.00383233 0.00600671 0.00937087 0.00382196
+0.00280532 0.0014379 0.000896013 0.000883216 0.000770576 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.728974 0.0654772
+0.0452581 0.0281591 0.0511813 0.0111624 0.0215829 0.00357462 0.0275706
+0.0276931 0.0154354 0.00799653 0.0145104 0.0110781 0.0116637 0.0173336
+0.00973956 0.0138464 0.0025253 0.0092461 0.0025254 0.00450731 0.000750554
+0.00735723 0.00718322 0.00154374 0.00348501 0.00417147 0.00578955 0.00222371
+0.00307339 0.00259911 0.00264141 0 0 0;
+#X coords 0 1 100 0 200 140 1 0 0;
+#X restore 219 211 graph;
+#X obj 149 419 metro 100;
+#X obj 89 456 print~;
+#X obj 102 421 bng 15 250 50 0 empty empty empty 17 7 0 10 #ffffff
+#000000 #000000;
+#X obj 221 69 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X msg 221 109 \; pd dsp \$1;
+#X obj 366 156 netsend;
+#X msg 379 116 disconnect;
+#X msg 478 114 send hello;
+#X msg 367 64 connect localhost 13001;
+#X msg 572 112 send \$1;
+#X floatatom 580 80 5 0 0 0 - - - 0;
+#X obj 65 634 netsend;
+#X msg 82 536 connect localhost 1300;
+#X msg 86 574 disconnect;
+#X obj 131 140 dac~;
+#X obj 181 572 adc~;
+#X obj 160 603 snapshot~;
+#X connect 0 0 1 0;
+#X connect 0 0 23 0;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 1 1 3 0;
+#X connect 1 1 3 1;
+#X connect 2 0 4 0;
+#X connect 3 0 4 1;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 0 10 0;
+#X connect 7 0 9 0;
+#X connect 9 0 6 0;
+#X connect 11 0 10 0;
+#X connect 12 0 13 0;
+#X connect 15 0 14 0;
+#X connect 16 0 14 0;
+#X connect 17 0 14 0;
+#X connect 18 0 14 0;
+#X connect 19 0 18 0;
+#X connect 21 0 20 0;
+#X connect 22 0 20 0;
+#X connect 24 0 25 0;
+#X connect 25 0 20 0;
